@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Test {
     public static void main(String[] args) throws ClassNotFoundException {
 
-        boolean bool = true;
+        boolean bool = true;//标志若登陆失败则继续输入
         while (bool) {
             System.out.print("请输入用户名:");
             Scanner sc = new Scanner(System.in);
@@ -17,7 +17,7 @@ public class Test {
             InputStream inp = Class.forName("Test").getResourceAsStream("/product.xlsx");
             ReadExcel re = new ReadExcel();
             User users[] = re.readExcel(in);
-            boolean flag = false;
+            boolean flag = false;//标志登陆成功后不再执行
             for (int i = 0; i < users.length; i++) {
                 if (username.equals(users[i].getUsername()) && password.equals(users[i].getPassword())) {
                     bool=false;
